@@ -47,7 +47,7 @@ public class ValidateTokenQueryHandler : IRequestHandler<ValidateTokenQuery, Val
             var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
 
             if (validatedToken is not JwtSecurityToken jwtToken ||
-                !jwtToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+                !jwtToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256Signature, StringComparison.InvariantCultureIgnoreCase))
             {
                 return Task.FromResult(new ValidateTokenResponse(
                     IsValid: false,
@@ -62,12 +62,17 @@ public class ValidateTokenQueryHandler : IRequestHandler<ValidateTokenQuery, Val
                 ));
             }
 
-            var userId = principal.FindFirst("userId")?.Value;
-            var email = principal.FindFirst("email")?.Value;
-            var username = principal.FindFirst("userName")?.Value;
+            var userId = principal.FindFirst("userId")?.Value
+                ?? principal.FindFirst("sub")?.Value
+                ?? principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var email = principal.FindFirst("email")?.Value
+                ?? principal.FindFirst(ClaimTypes.Email)?.Value;
+            var username = principal.FindFirst("userName")?.Value
+                ?? principal.FindFirst("preferred_username")?.Value;
             var fullName = principal.FindFirst("name")?.Value;
             var roles = principal.FindAll(ClaimTypes.Role).Select(c => c.Value).ToList();
-            var permissionsString = principal.FindFirst("permisos")?.Value;
+            var permissionsString = principal.FindFirst("permisos")?.Value
+                ?? principal.FindFirst("permissions")?.Value;
             var permissions = string.IsNullOrEmpty(permissionsString)
                 ? Array.Empty<string>()
                 : permissionsString.Split(',', StringSplitOptions.RemoveEmptyEntries);
