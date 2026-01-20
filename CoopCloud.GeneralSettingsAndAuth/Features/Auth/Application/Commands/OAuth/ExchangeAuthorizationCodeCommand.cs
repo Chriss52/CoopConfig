@@ -110,6 +110,7 @@ public class ExchangeAuthorizationCodeCommandHandler : IRequestHandler<ExchangeA
         var claims = new List<Claim>
         {
             new("sub", user.Id.ToString()),
+            new("userId", user.Id.ToString()),
             new("client_id", client.ClientId),
             new("email", user.Email),
             new("name", user.FullName),
@@ -139,7 +140,7 @@ public class ExchangeAuthorizationCodeCommandHandler : IRequestHandler<ExchangeA
 
         var token = new JwtSecurityToken(
             issuer: _configuration["JwtCredentials:Issuer"],
-            audience: client.ClientId,
+            audience: _configuration["JwtCredentials:Audience"],
             claims: claims,
             expires: DateTime.UtcNow.AddMinutes(client.AccessTokenLifetimeMinutes),
             signingCredentials: credentials

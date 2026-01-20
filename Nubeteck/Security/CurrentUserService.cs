@@ -18,7 +18,9 @@ public sealed class CurrentUserService : ICurrentUserService
     {
         get
         {
-            var userIdValue = _httpContextAccessor?.HttpContext?.User.FindFirst("userId")?.Value;
+            var userIdValue = _httpContextAccessor?.HttpContext?.User.FindFirst("userId")?.Value
+                ?? _httpContextAccessor?.HttpContext?.User.FindFirst("sub")?.Value
+                ?? _httpContextAccessor?.HttpContext?.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
 
             if (Guid.TryParse(userIdValue, out var userId))
             {
