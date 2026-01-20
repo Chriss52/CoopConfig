@@ -1,0 +1,11 @@
+export const ACTIVE = 1;
+export const INACTIVE = 2;
+export const BLOCKED = 3;
+export const SUSPENDED = 4;
+export const FROZEN = 5;
+export const CLOSED = 6;
+export const CANCELLED = 7;
+export const EMBARGOED = 8;
+export const OPENING = 9;
+export const REGULARIZING = 10;
+export const DRAFT = 11;

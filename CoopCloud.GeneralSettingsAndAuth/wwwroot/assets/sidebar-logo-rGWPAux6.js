@@ -1,0 +1,1 @@
+import{t as r}from"./index-BjhtngU2.js";import{N as s,P as o,U as m}from"./index-BzCiW6fY.js";const x=({title:a})=>r.jsxs(s,{children:[r.jsx(o,{src:"/images/logo.png"}),r.jsx(m,{children:a==null?void 0:a.slice(0,2)})]});export{x as S};

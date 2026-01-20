@@ -1,0 +1,11 @@
+import{w as i,y as n,t as e,z as c}from"./index-BjhtngU2.js";import{w as a,B as s,A as r}from"./index-BzCiW6fY.js";/**
+ * @license lucide-react v0.562.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const l=[["path",{d:"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",key:"1oefj6"}],["path",{d:"M14 2v5a1 1 0 0 0 1 1h5",key:"wfsgrz"}],["path",{d:"m14.5 12.5-5 5",key:"b62r18"}],["path",{d:"m9.5 12.5 5 5",key:"1rk7el"}]],o=a("file-x",l);/**
+ * @license lucide-react v0.562.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const d=[["path",{d:"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8",key:"5wwlr5"}],["path",{d:"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",key:"r6nss1"}]],x=a("house",d),h=()=>{const t=n();return e.jsx("div",{className:"flex min-h-screen items-center justify-center bg-background px-4",children:e.jsxs("div",{className:"w-full max-w-md space-y-8 text-center",children:[e.jsx("div",{className:"flex justify-center",children:e.jsx("div",{className:"rounded-full bg-destructive/10 p-6",children:e.jsx(o,{className:"h-16 w-16 text-destructive"})})}),e.jsxs("div",{className:"space-y-3",children:[e.jsx("h1",{className:"text-4xl font-bold tracking-tight",children:"404"}),e.jsx("h2",{className:"text-2xl font-semibold",children:"Página no encontrada"}),e.jsx("p",{className:"text-muted-foreground",children:"La página que buscas no existe o ha sido movida."})]}),e.jsxs("div",{className:"flex flex-col gap-3 pt-6 sm:flex-row sm:justify-center",children:[e.jsxs(s,{size:"lg",variant:"outline",onClick:()=>t(-1),children:[e.jsx(r,{className:"h-4 w-4"}),"Volver atrás"]}),e.jsx(s,{asChild:!0,size:"lg",children:e.jsxs(c,{to:"/",children:[e.jsx(x,{className:"h-4 w-4"}),"Ir al inicio"]})})]}),e.jsx("div",{className:"pt-6 text-sm text-muted-foreground",children:e.jsx("p",{children:"Si crees que esto es un error, verifica la URL o contacta con el administrador del sistema."})})]})})},f=i(h);export{f as default};
