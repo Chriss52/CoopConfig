@@ -47,7 +47,7 @@ public class ValidateTokenQueryHandler : IRequestHandler<ValidateTokenQuery, Val
             var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
 
             if (validatedToken is not JwtSecurityToken jwtToken ||
-                !jwtToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+                !jwtToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256Signature, StringComparison.InvariantCultureIgnoreCase))
             {
                 return Task.FromResult(new ValidateTokenResponse(
                     IsValid: false,
